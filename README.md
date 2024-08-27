@@ -25,7 +25,7 @@ Ranta J, Mikkelä A, Suomi J, Tuominen P. BIKE: Dietary Exposure Model for Foodb
 Ranta J, Marinova-Todorova M, Mikkelä A, Suomi J, Tuominen P 2023. BIKE foodborne exposure model - A graphical user interface for the Bayesian dietary exposure assessment model for microbiological and chemical hazards (BIKE). Finnish Food Authority, Helsinki, Finland. Available at https://bike-expo-shiny.rahtiapp.fi/
 
 #### Updates:
-Consumption frequency estimated as population average "p0" from Bayesian model (uncertainty). Individual consumption frequencies predicted (variability between consumers) where needed.
+Consumption frequency estimated as population average "p0" from Bayesian model (uncertainty). Individual consumption frequencies predicted (variability between consumers) only where needed.
 
 Exposure quantile estimation (2D simulation of uncertainty & variability) computations improved by vectorizing some evaluations which previously were indexed in loops.  
 
