@@ -1,6 +1,6 @@
-# BIKE2
+# BIKE2.1
 
-## BIKE model version 2
+## BIKE model version 2.1
 Foodborne exposure assessment model for biological and chemical hazards
 
 This is a Bayesian model for estimating foodborne exposures based on dietary data on food consumption frequencies and amounts, and corresponding occurrence data on hazard concentrations (chemical and microbiological) and hazard prevalence (microbiological). The model can be used as a shiny app providing a user interface. Data need to be specified in files that are read by R-code, which then creates the necessary BUGS code of the Bayesian model which is simulated using OpenBUGS in the background. Results are processed in R and presented in the shiny app. Users need to have both R and OpenBUGS installed.
@@ -23,5 +23,11 @@ Ranta J, Mikkelä A, Suomi J, Tuominen P. BIKE: Dietary Exposure Model for Foodb
 
 #### Cite BIKE app as:
 Ranta J, Marinova-Todorova M, Mikkelä A, Suomi J, Tuominen P 2023. BIKE foodborne exposure model - A graphical user interface for the Bayesian dietary exposure assessment model for microbiological and chemical hazards (BIKE). Finnish Food Authority, Helsinki, Finland. Available at https://bike-expo-shiny.rahtiapp.fi/
+
+#### Updates:
+Consumption frequency estimated as population average "p0" from Bayesian model (uncertainty). Individual consumption frequencies predicted (variability between consumers) where needed.
+
+Exposure quantile estimation (2D simulation of uncertainty & variability) computations improved by vectorizing some evaluations which previously were indexed in loops.  
+
 
 
