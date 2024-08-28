@@ -671,7 +671,7 @@ ui <- navbarPage(id ="bike_tabs",
                                                                                       style="color: #343841; background-color: #CEB888; border-color: #CEB888"),
                                                                        helpText(strong("The report will contain only the figures and tables currently visualized in the app.")),
                                                                        helpText(strong("BEFORE DOWNLOAD, generate in the app:
-                                                                                      'Quantiles' figure, 'Posterior summaries' and 'Exposure limit' tables!"), 
+                                                                                      'Quantiles' figure, 'Posterior predictive' and 'Exposure limit' tables!"), 
                                                                                 style = "text-align:left;color:#D0006F")
                                                              ), style = "background-color: #F4F3F2;"
                                                            )
