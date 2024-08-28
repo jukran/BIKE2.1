@@ -10,7 +10,11 @@ This is a Bayesian model for estimating foodborne exposures based on dietary dat
 
 https://posit.co/download/rstudio-desktop/
 
+OpenBUGS is no longer on this site:
 https://www.mrc-bsu.cam.ac.uk/software/bugs/openbugs/
+But it could be downloaded from here:
+https://openbugs.software.informer.com/download/?cf25c9ce#downloading
+And the file OpenBUGS323setup.exe is also copied in this BIKE2.1 folder for convenience. 
 
 2. Download the BIKE-code files and unzip in local folder.
 3. Open the app.R file in RStudio.
