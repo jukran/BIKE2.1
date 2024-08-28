@@ -137,7 +137,7 @@ logsw <- params$data1$logsw
 
 if(nf==1){
   mus0<- params$solvedBugs$mus0_s
-  ppred <- params$solvedBugs$ppred_s 
+ # ppred <- params$solvedBugs$ppred_s 
   Ss<- params$solvedBugs$Ss_s
   Ss0 <- params$solvedBugs$Ss0_s
   mucK <- params$solvedBugs$mucK_s
@@ -158,7 +158,7 @@ if(nf==1){
 }
 if(nf>1){ 
   mus0 <- params$bugsresults$mus0
-  ppred <- params$bugsresults$ppred
+#  ppred <- params$bugsresults$ppred
   Ss <- params$solvedBugs$Ss_m
   Ss0 <- params$solvedBugs$Ss0_m
   mucK <- params$bugsresults$mucK
@@ -428,9 +428,9 @@ $Figure$$2a$ Variability distributions for both mean consumptions per bodyweight
 ```{r consum-plot, distPlot2_1, fig.show ='hold', out.width="600px", out.height="400px"}
 
 distPlot2_1(input_lim, food_consum, unit_consum, input_upper, input_lower, n_sim, input_selectdist, input_selectscale, foodnamesused, nfused, foodindex,
-            nf, nr, nd, logs, logsw, input_modelchoice, input_modelchoice2, input_modelchoice3, input_modelchoice4, input_modelchoice5,
-            mus0, muw, ppred, sigw, Ss, Ss0
-)
+                nf, nr, nd,logs, logsw,input_modelchoice,input_modelchoice2,input_modelchoice3,input_modelchoice4,input_modelchoice5,
+                mus0,muw,logitp0,sigw,Ss,Ss0
+    )
 
 
 ```
@@ -527,14 +527,14 @@ $Figure$ $3$ Variability distribution for mean positive exposures per bodyweight
 
 
 distPlot3_1(input_lim, unit_concen, hazard_concen, input_upper, input_lower, n_sim, input_selectdist, input_selectscale, input_modelchoice, input_modelchoice2, input_modelchoice3,input_modelchoice4,
-            foodnamesused, nfused, foodindex, hazardnames,
-            nhused,  hazardnamesusedK, hazardnamesusedM,
-            nhusedK, nhusedM, hazardindexK, hazardindexM, Rall, Pall,nhK,nhM,nf,nr,nd,
-            nexactK, nexactM, 
-            logs,logsw,logcK,logLOQK,logLODK,logLOQLimK,logLODLimK, logcM,logLOQM,logLODM,logLOQLimM,logLODLimM,
-            logitp0,mucK,mucM,mus0,muw,pK,pM,ppred,sigcK,sigcM,sigw,
-            Ss,Ss0,Sp
-)
+                foodnamesused, nfused, foodindex, hazardnames,
+                nhused,  hazardnamesusedK, hazardnamesusedM,
+                nhusedK, nhusedM, hazardindexK, hazardindexM, Rall, Pall,nhK,nhM,nf,nr,nd,
+                nexactK, nexactM, 
+                logs,logsw,logcK,logLOQK,logLODK,logLOQLimK,logLODLimK, logcM,logLOQM,logLODM,logLOQLimM,logLODLimM,
+                logitp0,mucK,mucM,mus0,muw,pK,pM,sigcK,sigcM,sigw,
+                Ss,Ss0,Sp
+    )
 
 
 
@@ -584,16 +584,16 @@ if (is.element("None", input_selectQ)){
 } else
   
   distPlot4_1(unit_concen, hazard_concen, n_sim, input_selectscale, input_selectQ, nV,
-              nU, Rall, Pall, input_modelchoice, input_modelchoice2,
-              input_modelchoice5, input_modelchoice4, input_modelchoice3,
-              nfused, foodindex, 
-              nexactK, nexactM, 
-              nhused, hazardnames, hazardnamesusedK, hazardnamesusedM,
-              nhusedK, nhusedM, hazardindexK, hazardindexM, nhK,nhM,nf,
-              mucK,mucM,mus0,muw,pK,pM,ppred,sigcK,sigcM,sigw,
-              Ss,Ss0,Sp,
-              logitp0
-  )
+                nU, Rall, Pall, input_modelchoice, input_modelchoice2,
+                input_modelchoice5, input_modelchoice4, input_modelchoice3,
+                nfused, foodindex, 
+                nexactK, nexactM, 
+                nhused, hazardnames, hazardnamesusedK, hazardnamesusedM,
+                nhusedK, nhusedM, hazardindexK, hazardindexM, nhK,nhM,nf,
+                mucK,mucM,mus0,muw,pK,pM,sigcK,sigcM,sigw,
+                Ss,Ss0,Sp,
+                logitp0
+    )
 
 
 ```
@@ -667,10 +667,10 @@ $Figure$ $5b$ Permuted MCMC samples of model parameters $mu$ and $sigma$ of the 
 #cat('**Consumption parameters**')
 
 distPlot5_2(n_sim,foodnamesused, nfused, foodindex,
-            nf,
-            mus0,ppred,
-            Ss
-)
+                nf,
+                mus0,logitp0,
+                Ss
+    )
 
 ```
 
@@ -713,13 +713,13 @@ knitr::read_chunk('tablefunctions.R')
 # create data frame containing posterior predictive summaries----
 
 resultValues <- table1(n_sim, input_modelchoice,input_modelchoice2,input_modelchoice3,input_modelchoice4,input_modelchoice5,
-                       theresults, foodnamesused, nfused, foodindex, hazardnames, 
-                       hazardnamesusedK,hazardnamesusedM, nhusedK, nhusedM, hazardindexK, hazardindexM,
-                       Rall, Pall,nhK,nhM,nf,nexactK,nexactM,
-                       mucK,mucM,mus0,muw,pK,pM,ppred,sigcK,sigcM,sigw,
-                       logitp0,
-                       Ss,Ss0,Sp
-)
+           theresults, foodnamesused, nfused, foodindex, hazardnames, 
+           hazardnamesusedK,hazardnamesusedM, nhusedK, nhusedM, hazardindexK, hazardindexM,
+           Rall, Pall,nhK,nhM,nf,nexactK,nexactM,
+           mucK,mucM,mus0,muw,pK,pM,sigcK,sigcM,sigw,
+           logitp0,
+           Ss,Ss0,Sp
+    )
 
 datatable(resultValues, rownames = FALSE,
           caption = "POSTERIOR PREDICTIVE DISTRIBUTION SUMMARIES",
@@ -755,12 +755,12 @@ The columns Q05, Q50, Q95 refer to uncertainty quantiles for the 'Quantity' in f
 # create data frame containing exposure limit analysis table----
 
 resultProbs <- table2(n_sim, input_modelchoice,input_modelchoice2,foodnamesused,nfused,foodindex,hazardnames,
-                      hazardnamesused,hazardtypesused,hazardnamesK,hazardnamesM,
-                      hazardnamesusedK,hazardnamesusedM,nhusedK,nhusedM,hazardindexK,hazardindexM,
-                      Rall,Pall,nhK,nhM,nf,nexactK,nexactM,limitexpoK,limitexpoM,
-                      mus0,ppred,mucK,mucM,sigcK,sigcM,pK,pM,logitp0,muw,sigw,
-                      Ss,Ss0,Sp 
-)
+           hazardnamesused,hazardtypesused,hazardnamesK,hazardnamesM,
+           hazardnamesusedK,hazardnamesusedM,nhusedK,nhusedM,hazardindexK,hazardindexM,
+           Rall,Pall,nhK,nhM,nf,nexactK,nexactM,limitexpoK,limitexpoM,
+           mus0,mucK,mucM,sigcK,sigcM,pK,pM,logitp0,muw,sigw,
+           Ss,Ss0,Sp 
+    )
 
 datatable(resultProbs, rownames = FALSE,
           caption = "Exposure limit analysis",
