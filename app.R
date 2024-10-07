@@ -271,11 +271,14 @@ ui <- navbarPage(id ="bike_tabs",
                                                  label = "Between-user variability in consumption frequencies",
                                                  choices = c("No", "Yes")
                                                ),
+                                               conditionalPanel(  
+                                                 condition = "input.modelchoice2 == 'Yes'",  
                                                radioButtons(
                                                  "modelchoice5",
                                                  label = "Correlation model of consumption frequencies",
                                                  choices = c("No", "Yes")
                                                )
+                                               ),  
                                              )
                                            ),
                                            h5(strong("Correlation models"), style ="color:#CEB888"),
