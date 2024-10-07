@@ -31,7 +31,9 @@ Ranta J, Marinova-Todorova M, Mikkelä A, Suomi J, Tuominen P 2023. BIKE foodbor
 #### Updates:
 Consumption frequency estimated as population average "p0" from Bayesian model (uncertainty). Individual consumption frequencies predicted (variability between consumers) only where needed.
 
-Exposure quantile estimation (2D simulation of uncertainty & variability) computations improved by vectorizing some evaluations which previously were indexed in loops.  
+Exposure quantile estimation (2D simulation of uncertainty & variability) computations improved by vectorizing some evaluations which previously were indexed in loops.
+
+Radio buttons for model choice on correlation model for consumption frequencies corrected to be nested (conditional on upper level model choice).  
 
 
 
