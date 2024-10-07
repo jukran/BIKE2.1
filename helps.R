@@ -85,9 +85,9 @@ help_params_indep <- function(){
              occurrences which manifest such variation, they may be too few for reliable estimation. Therefore, it is 
              recommended to check the MCMC output for the variance parameter from the corresponding plots and to be aware 
              of the quality of data used. <b>Between-user variability</b> should be considered as part of the model only if 
-             there is enough data for estimating between consumer variance. 
+             there is enough data for estimating between consumer variance and if consumption frequencies need to be individual. 
              <li><b>Correlation model of consumption frequencies</b></li>
-             With several food types, correlations may be allowed between consumption (logit) frequencies of different foods, 
+             With individual specific consumption (logit) frequencies, they may be allowed to be correlated between different foods, 
              but the correlation parameters are not individual specific (this would require much more reporting days per each 
              individual). 
              </ul>",
