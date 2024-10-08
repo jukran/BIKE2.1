@@ -769,7 +769,7 @@ distPlot2_1 <- function(input_lim, food_consum, unit_consum, input_upper, input_
 
 
 # Plot 3: Exposures:----
-## ---- distPlot3_1 -------- #ppred
+## ---- distPlot3_1 --------
 distPlot3_1 <- function(input_lim, unit_concen, hazard_concen, input_upper, input_lower, n_sim, input_selectdist, input_selectscale, input_modelchoice, input_modelchoice2, input_modelchoice3,input_modelchoice4,
                         foodnamesused, nfused, foodindex, hazardnames,
                         nhused,  hazardnamesusedK, hazardnamesusedM,
@@ -1755,7 +1755,7 @@ distPlot3_1 <- function(input_lim, unit_concen, hazard_concen, input_upper, inpu
 
 # Plot 4: Quantiles:----
 
-## ---- distPlot4_1 -------- # ppred
+## ---- distPlot4_1 -------- 
 distPlot4_1 <- function(unit_concen, hazard_concen, n_sim, input_selectscale, input_selectQ, nV,
                         nU, Rall, Pall, input_modelchoice, input_modelchoice2,
                         input_modelchoice5, input_modelchoice4, input_modelchoice3,
@@ -1925,7 +1925,7 @@ distPlot4_1 <- function(unit_concen, hazard_concen, n_sim, input_selectscale, in
             
             # legend outside the figure, but onto the current plot, so it is part of the png file:
             mtext(paste("Estimated",theQ,"% quantile for the positive exposures: ",round(quantile(Qplus[,h],0.5,names=FALSE),2),  
-                        "(median). 0% uncertainty interval for the estimated quantile: ", round(quantile(Qplus[,h],0.05,names=FALSE),2),"-", round(quantile(Qplus[,h],0.95,names=FALSE),2)),
+                        "(median). 90% uncertainty interval for the estimated quantile: ", round(quantile(Qplus[,h],0.05,names=FALSE),2),"-", round(quantile(Qplus[,h],0.95,names=FALSE),2)),
                   side = 1, adj = 0,line=1, cex = 1,
                   outer = TRUE)
             
