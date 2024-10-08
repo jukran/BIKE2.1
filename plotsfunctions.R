@@ -414,7 +414,7 @@ distPlot1_1 <- function(input_lim, unit_concen, hazard_concen, input_upper, inpu
 
 
 # Plot 2: Consumptions:---- 
-## ---- distPlot2_1 --------  # ppred
+## ---- distPlot2_1 -------- 
 distPlot2_1 <- function(input_lim, food_consum, unit_consum, input_upper, input_lower, n_sim, input_selectdist, input_selectscale, foodnamesused, nfused, foodindex,
                         nf, nr, nd,logs, logsw,input_modelchoice,input_modelchoice2,input_modelchoice3,input_modelchoice4,input_modelchoice5,
                         mus0,muw,logitp0,sigw,Ss,Ss0
