@@ -1011,9 +1011,9 @@ distPlot3_1 <- function(input_lim, unit_concen, hazard_concen, input_upper, inpu
                     +0.5*Vs
                     +mucK[,hazardindexK[h],foodindex[i]]
                     +0.5*sigcK[,hazardindexK[h],foodindex[i]]^2))
-              plot(medianexposure,cump,col="#F7CE3C",main=paste(hazardnamesusedK[h],"from",foodnamesused[i],"(chronic)"),
-                   xlab=paste("C.exposure/bw+  (", Unit1,"per kg)"),ylab="Cumulative probability",xlim=c(0,maxx),lwd=3,type="l")
-              lines(meanexposure,cump,lwd=3) 
+              plot(meanexposure[meanexposure<maxx],cump[meanexposure<maxx],col="#F7CE3C",main=paste(hazardnamesusedK[h],"from",foodnamesused[i],"(chronic)"),
+                   xlab=paste("C.exposure/bw+  (", Unit1,"per kg)"),ylab="Cumulative probability",xlim=c(0,maxx),ylim=c(0,1),lwd=3,type="l")
+              lines(medianexposure[medianexposure<maxx],cump[medianexposure<maxx],lwd=3)   
               
               xvalues <- seq(0,maxx,length=100)
               uppervalues <- numeric()
@@ -1065,8 +1065,8 @@ distPlot3_1 <- function(input_lim, unit_concen, hazard_concen, input_upper, inpu
                 lines(ecdf(sampleOIM*mean(samplecon)*RK[foodindex[i],hazardindexK[h]]),verticals=TRUE,do.points=FALSE,xlim=c(0,maxx),lwd=1,lty=3,col="#D0006F")
                 lines(ecdf(sampleOIM*mean(samplecon0)*RK[foodindex[i],hazardindexK[h]]),verticals=TRUE,do.points=FALSE,xlim=c(0,maxx),lwd=1,lty=3,col="#004F71")
               }
-              lines(meanexposure,cump,col="#F7CE3C",main=paste(hazardnamesusedK[h],"from",foodnamesused[i],"(chronic)"),xlab="C.exposure/bw+",ylab="",xlim=c(0,maxx),lwd=3) 
-              lines(medianexposure,cump,xlim=c(0,maxx),lwd=3)
+              lines(meanexposure[meanexposure<maxx],cump[meanexposure<maxx],col="#F7CE3C",main=paste(hazardnamesusedK[h],"from",foodnamesused[i],"(chronic)"),xlab="C.exposure/bw+",ylab="",xlim=c(0,maxx),lwd=3) 
+              lines(medianexposure[medianexposure<maxx],cump[medianexposure<maxx],xlim=c(0,maxx),lwd=3)
               
               # numerical results:
               
@@ -1496,9 +1496,9 @@ distPlot3_1 <- function(input_lim, unit_concen, hazard_concen, input_upper, inpu
                                            mucM[,hazardindexM[h],foodindex[i]]+
                                            muw))
               
-              plot(meanexposure,cump,col="#F7CE3C",main=paste(hazardnamesusedM[h],"from",foodnamesused[i],"(acute)"),
-                   xlab=paste("A.exposure+  (", Unit1,"per day)"),ylab="Cumulative probability",xlim=c(0,maxx),type="l",lwd=3) 
-              lines(medianexposure,cump,xlim=c(0,maxx),lwd=3)
+              plot(meanexposure[meanexposure<maxx],cump[meanexposure<maxx],col="#F7CE3C",main=paste(hazardnamesusedM[h],"from",foodnamesused[i],"(acute)"),
+                   xlab=paste("A.exposure+  (", Unit1,"per day)"),ylab="Cumulative probability",xlim=c(0,maxx),ylim=c(0,1),type="l",lwd=3) 
+              lines(medianexposure[medianexposure<maxx],cump[medianexposure<maxx],xlim=c(0,maxx),lwd=3)
               
               xvalues <- seq(0,maxx,length=100)
               uppervalues <- numeric()
@@ -1555,8 +1555,8 @@ distPlot3_1 <- function(input_lim, unit_concen, hazard_concen, input_upper, inpu
                 lines(ecdf(sampleser*samplecon*RM[foodindex[i],hazardindexM[h]]),verticals=TRUE,do.points=FALSE,xlim=c(0,maxx),lwd=1,lty=3,col="#D0006F")
                 lines(ecdf(sampleser*samplecon0*RM[foodindex[i],hazardindexM[h]]),verticals=TRUE,do.points=FALSE,xlim=c(0,maxx),lwd=1,lty=3,col="#004F71")
               }
-              lines(meanexposure,cump,col="#F7CE3C",main=paste(hazardnamesusedM[h],"from",foodnamesused[i],"(acute)"),xlab="A.exposure+",ylab="",xlim=c(0,maxx),lwd=3) 
-              lines(medianexposure,cump,xlim=c(0,maxx),lwd=3)
+              lines(meanexposure[meanexposure<maxx],cump[meanexposure<maxx],col="#F7CE3C",main=paste(hazardnamesusedM[h],"from",foodnamesused[i],"(acute)"),xlab="A.exposure+",ylab="",xlim=c(0,maxx),lwd=3) 
+              lines(medianexposure[medianexposure<maxx],cump[medianexposure<maxx],xlim=c(0,maxx),lwd=3)
               
               # numerical results:
               
