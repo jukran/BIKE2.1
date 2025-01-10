@@ -142,7 +142,7 @@ for(i in 1:nf){   # food
 
 # Make sure consumption information is numeric
 orderv <- c(t(order)) # make order vector
-consum[orderv] <- sapply(consum[orderv],as.numeric)
+consum[orderv] <- suppressWarnings(sapply(consum[orderv],as.numeric))
 
 # Make data array for the consumption estimation (to be used in BUGS)
 s <- array(NA,c(nr,nd,nf))
@@ -150,8 +150,8 @@ sw <- array(NA,c(nr,nd,nf))
 Weight <- sapply(Weight,as.numeric)
 for(r in 1:nr){
   for(i in 1:nf){
-    s[r,1:nd,i] <- as.numeric(consum[r,order[i,]])  # serving size
-    sw[r,1:nd,i] <- as.numeric(consum[r,order[i,]]/Weight[r]) # serving size per person weight
+    s[r,1:nd,i] <- suppressWarnings(as.numeric(consum[r,order[i,]]))  # serving size
+    sw[r,1:nd,i] <- suppressWarnings(as.numeric(consum[r,order[i,]]/Weight[r])) # serving size per person weight
   }}
 s[s == 0] <- NA
 sw[is.na(s)] <- NA
