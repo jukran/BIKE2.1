@@ -108,8 +108,8 @@ distPlot1_1 <- function(input_lim, unit_concen, hazard_concen, input_upper, inpu
                 0.5,names=FALSE)
               
               cmedianK <- sort(exp(mucK[,hazardindexK[h],foodindex[i]]))
-              plot(cmedianK,cump,col="#F7CE3C",lwd=3,main=paste(hazardnamesusedK[h],"in",foodnamesused[i]),
-                   xlab=paste("Concentration+ (", Unit1, "per", Unit2,")"),ylab="Cumulative probability",xlim=c(0,maxx),type="l")
+              plot(cmedianK[cmedianK<maxx],cump[cmedianK<maxx],lwd=3,main=paste(hazardnamesusedK[h],"in",foodnamesused[i]),
+                   xlab=paste("Concentration+ (", Unit1, "per", Unit2,")"),ylab="Cumulative probability",xlim=c(0,maxx),ylim=c(0,1),type="l")
               xvalues <- seq(0,maxx*1.1,length=100)
               uppervalues <- numeric()
               lowervalues <- numeric()
@@ -126,8 +126,9 @@ distPlot1_1 <- function(input_lim, unit_concen, hazard_concen, input_upper, inpu
               polygon(c(xvalues,xvalues[100:1]),c(uppervalues,lowervalues[100:1]),col="#CEB888")
               cmeanK <- sort(exp(mucK[,hazardindexK[h],foodindex[i]]+0.5*sigcK[,hazardindexK[h],foodindex[i]]^2))
               cmedianK <- sort(exp(mucK[,hazardindexK[h],foodindex[i]]))
-              lines(cmeanK,cump,col="#F7CE3C",lwd=3,main=paste(hazardnamesusedK[h],"in",foodnamesused[i]),xlab="Concentration+",ylab="",xlim=c(0,maxx),type="l") 
-              lines(cmedianK,cump,lwd=3)
+              lines(cmedianK[cmedianK<maxx],cump[cmedianK<maxx],lwd=3) 
+              lines(cmeanK[cmeanK<maxx],cump[cmeanK<maxx],lwd=3,col="#F7CE3C") 
+              
               # mark data points and possible LOD and LOQ values for censored data:
               rug(exp(logcK[hazardindexK[h],foodindex[i],]),lwd=2.5,col="#D0006F",quiet=TRUE)
               rug(exp(logLOQK[hazardindexK[h],foodindex[i],]),lwd=4.5,col="green",quiet=TRUE)
@@ -304,12 +305,12 @@ distPlot1_1 <- function(input_lim, unit_concen, hazard_concen, input_upper, inpu
               maxx <- quantile(qlnorm(input_lim,mucM[,hazardindexM[h],foodindex[i]],sigcM[,hazardindexM[h],foodindex[i]]),
                                0.5,names=FALSE)
               
-              plot(cmeanM,cump,col="#F7CE3C",lwd=3,main=paste(hazardnamesusedM[h],"in",foodnamesused[i]),
-                   xlab=paste("Concentration+ (", Unit1, "per", Unit2,")"),ylab="Cumulative probability",xlim=c(0,maxx),type="l") 
+              plot(cmedianM[cmedianM<maxx],cump[cmedianM<maxx],lwd=3,main=paste(hazardnamesusedM[h],"in",foodnamesused[i]),
+                   xlab=paste("Concentration+ (", Unit1, "per", Unit2,")"),ylab="Cumulative probability",xlim=c(0,maxx),ylim=c(0,1),type="l")
               xvalues <- seq(0,maxx*1.1,length=100)
               uppervalues <- numeric()
               lowervalues <- numeric()
-              for(xv in 1:100){
+              for(xv in 1:100){   
                 uppervalues[xv] <- quantile(plnorm(xvalues[xv],
                                                    mucM[,hazardindexM[h],foodindex[i]],
                                                    sigcM[,hazardindexM[h],foodindex[i]]),
@@ -320,8 +321,8 @@ distPlot1_1 <- function(input_lim, unit_concen, hazard_concen, input_upper, inpu
                                             input_lower,names=FALSE) #0.025,names=FALSE)
               }
               polygon(c(xvalues,xvalues[100:1]),c(uppervalues,lowervalues[100:1]),col="#CEB888")
-              lines(cmeanM,cump,col="#F7CE3C",lwd=3,main=paste(hazardnamesusedM[h],"in",foodnamesused[i]),xlab="Concentration+",ylab="",xlim=c(0,maxx),type="l") 
-              lines(cmedianM,cump,lwd=3)
+              lines(cmedianM[cmedianM<maxx],cump[cmedianM<maxx],lwd=3) 
+              lines(cmeanM[cmeanM<maxx],cump[cmeanM<maxx],lwd=3,col="#F7CE3C")   
               # mark data points and possible LOD and LOQ values for censored data:
               rug(exp(logcM[hazardindexM[h],foodindex[i],]),lwd=2.5,col="#D0006F",quiet=TRUE)
               rug(exp(logLOQM[hazardindexM[h],foodindex[i],]),lwd=4.5,col="green",quiet=TRUE)
