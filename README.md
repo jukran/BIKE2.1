@@ -35,5 +35,5 @@ Exposure quantile estimation (2D simulation of uncertainty & variability) comput
 
 Radio buttons for model choice on correlation model for consumption frequencies corrected to be nested (conditional on upper level model choice).  
 
-
-
+Some individuals may have less observed days than others in consumption data. Their "observations" on missing days need to be coded as NA, so that the consumption data table remains a full table spanned by the maximum number of observation days among all individuals. 
+ 
