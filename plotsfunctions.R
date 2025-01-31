@@ -1499,7 +1499,6 @@ distPlot3_1 <- function(input_lim, unit_concen, hazard_concen, input_upper, inpu
               
               plot(meanexposure[meanexposure<maxx],cump[meanexposure<maxx],col="#F7CE3C",main=paste(hazardnamesusedM[h],"from",foodnamesused[i],"(acute)"),
                    xlab=paste("A.exposure+  (", Unit1,"per day)"),ylab="Cumulative probability",xlim=c(0,maxx),ylim=c(0,1),type="l",lwd=3) 
-              lines(medianexposure[medianexposure<maxx],cump[medianexposure<maxx],xlim=c(0,maxx),lwd=3)
               
               xvalues <- seq(0,maxx,length=100)
               uppervalues <- numeric()
